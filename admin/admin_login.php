@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
 
     if (!empty($username) && !empty($password)){
         // Log user in
-        $message = login($username, $password);
+        $message = login($username, $password, $ip);
     }else{
         $message = "Please fill out the required fields";
     }
