@@ -26,6 +26,9 @@ function login($username, $password, $ip){
             $id = $found_user['user_id'];
 
             $message = 'You are now logged in';
+            
+            $_SESSION['user_id'] = $id;
+            $_SESSION['user_name'] = $found_user['user_fname'];
 
             $update_query = 'UPDATE tbl_user SET user_ip = :ip WHERE user_id = :id';
             $update_set= $pdo->prepare($update_query);
@@ -42,10 +45,21 @@ function login($username, $password, $ip){
          }
 
     }else{
-        $message = 'User does not exist';
+        $message = 'User does not exist.';
     }
 
-    return $message;
+    return $message = 'Your username or password is incorrect.';
+}
+
+function confirm_logged_in(){
+    if(!isset($_SESSION['user_id'])){
+        redirect_to('admin_login.php');
+    }
+}
+
+function logout(){
+    session_destroy();
+    redirect_to('admin_logout.php');
 }
 
 ?>

@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
         // Log user in
         $message = login($username, $password, $ip);
     }else{
-        $message = "Please fill out the required fields";
+        $message = "Please fill out the required fields.";
     }
 }
 ?>
