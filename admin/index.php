@@ -14,6 +14,8 @@
 <body>
     <h2>Welcome <?php echo $_SESSION['user_name'];?></h2>
 
+    <?php echo !empty($message)?$message:''?>
+
     <a href="admin_createuser.php">Create User</a>
     <a href="admin_edituser.php">Edit User</a>
     <a href="admin_deleteuser.php">Delete User</a>
