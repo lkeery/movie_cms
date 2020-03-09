@@ -48,7 +48,7 @@ function login($username, $password, $ip){
         $message = 'User does not exist.';
     }
 
-    return $message = 'Your username or password is incorrect.';
+    return $message;
 }
 
 function confirm_logged_in(){
